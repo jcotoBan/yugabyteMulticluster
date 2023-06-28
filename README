@@ -27,7 +27,7 @@ Linode account access with pat token enabled to create LKE clusters and Linodes.
 1-First pull this repo:
 
 ```bash
-
+git pull test
 ```
 
 2-Then go inside folder managementInstance→instanceworkdir
