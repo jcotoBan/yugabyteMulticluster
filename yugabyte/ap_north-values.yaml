@@ -1,0 +1,58 @@
+Image:
+  tag: 2.16.3.0-b43
+
+istioCompatibility:
+  enabled: true
+
+resource:
+  master:
+    requests:
+      cpu: "2"
+      memory: 2Gi
+    limits:
+      cpu: "2"
+      memory: 2Gi
+  tserver:
+    requests:
+      cpu: "1"
+      memory: 4Gi
+    limits:
+      cpu: "2"
+      memory: 4Gi
+
+storage:
+  ephemeral: true  # will not allocate PVs when true
+  master:
+    count: 2
+    size: 10Gi
+    storageClass: "local-storage"
+  tserver:
+    count: 2
+    size: 10Gi
+    storageClass: "local-storage"
+
+multicluster:
+  createServicePerPod: true
+  createCommonTserverService: true
+
+isMultiAz: true
+
+masterAddresses: "{us-west-yugabyte-yb-master-0.ybdb.svc.cluster.local},{eu-west-yugabyte-yb-master-0.ybdb.svc.cluster.local},{ap-north-yugabyte-yb-master-0.ybdb.svc.cluster.local,ap-north-yugabyte-yb-master-0.ap-north-yugabyte-yb-masters.ybdb.svc.cluster.local}"
+
+replicas:
+  totalMasters: 3
+  master: 1
+  tserver: 2
+
+gflags:
+  master:
+    placement_region: ap-north
+    placement_cloud: linode
+  tserver:
+    placement_region: ap-north
+    placement_cloud: linode
+
+oldNamingStyle: false
+
+preflight:
+  skipBind: true

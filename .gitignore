@@ -1,0 +1,4 @@
+managementInstance/ssh-keys/lab_*
+managementInstance/instanceworkdir/.terraform*
+managementInstance/instanceworkdir/terraform.tfstate*
+managementInstance/instanceworkdir/terraform.tfvars
